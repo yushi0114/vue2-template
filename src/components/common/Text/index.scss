@@ -1,0 +1,107 @@
+.sjc-text {
+    display: inline;
+    color: currentColor;
+
+    &--underline {
+        text-decoration-line: underline;
+    }
+
+    &--block {
+        display: block;
+    }
+
+    &--bold {
+        font-weight: 700;
+    }
+
+    &--italic {
+        font-style: italic;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--right {
+        text-align: right;
+    }
+
+    &--justify {
+        text-align: justify;
+    }
+
+    &--truncate {
+        overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+
+    &--nowrap {
+        white-space: nowrap;
+    }
+
+    &--uppercase {
+        text-transform: uppercase;
+    }
+
+    &--xs {
+        font-size: var(--sjc-font-size-xs);
+    line-height: var(--sjc-line-height-xs);
+    }
+
+    &--sm {
+        font-size: var(--sjc-font-size-sm);
+    line-height: var(--sjc-line-height-sm);
+    }
+
+    &--md {
+        font-size: var(--sjc-font-size-md);
+    line-height: var(--sjc-line-height-md);
+    }
+
+    &--lg {
+        font-size: var(--sjc-font-size-lg);
+    line-height: var(--sjc-line-height-lg);
+    }
+
+    &--xl {
+        font-size: var(--sjc-font-size-xl);
+    line-height: var(--sjc-line-height-xl);
+    }
+
+    &--color-primary {
+        color: var(--sjc-primary-color);
+    }
+
+    &--color-error, &--color-exception, &--color-danger {
+        color: var(--sjc-danger-color);
+    }
+
+    &--color-success {
+        color: var(--sjc-success-color);
+    }
+
+    &--color-warning {
+        color: var(--sjc-warning-color);
+    }
+
+    &--color-info {
+        color: var(--sjc-text-color-2);
+    }
+
+    &--color-paragraph {
+        color: var(--sjc-text-color);
+    }
+
+    &--color-regular {
+        color: var(--sjc-text-color-2);
+    }
+
+    &--color-secondary {
+        color: var(--sjc-text-color-2);
+    }
+
+    &--color-placeholder, &--color-disabled {
+        color: var(--sjc-text-color-3);
+    }
+  }

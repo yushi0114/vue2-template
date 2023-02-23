@@ -1,0 +1,135 @@
+@keyframes sjc-slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes sjc-slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes sjc-slide-down-enter {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes sjc-slide-down-leave {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes sjc-slide-left-enter {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes sjc-slide-left-leave {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes sjc-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes sjc-slide-right-leave {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes sjc-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sjc-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sjc-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sjc-fade {
+  &-enter-active {
+    animation: var(--sjc-duration-base) sjc-fade-in both var(--sjc-ease-out);
+  }
+
+  &-leave-active {
+    animation: var(--sjc-duration-base) sjc-fade-out both var(--sjc-ease-in);
+  }
+}
+
+.sjc-slide-up {
+  &-enter-active {
+    animation: sjc-slide-up-enter var(--sjc-duration-base) both
+      var(--sjc-ease-out);
+  }
+
+  &-leave-active {
+    animation: sjc-slide-up-leave var(--sjc-duration-base) both
+      var(--sjc-ease-in);
+  }
+}
+
+.sjc-slide-down {
+  &-enter-active {
+    animation: sjc-slide-down-enter var(--sjc-duration-base) both
+      var(--sjc-ease-out);
+  }
+
+  &-leave-active {
+    animation: sjc-slide-down-leave var(--sjc-duration-base) both
+      var(--sjc-ease-in);
+  }
+}
+
+.sjc-slide-left {
+  &-enter-active {
+    animation: sjc-slide-left-enter var(--sjc-duration-base) both
+      var(--sjc-ease-out);
+  }
+
+  &-leave-active {
+    animation: sjc-slide-left-leave var(--sjc-duration-base) both
+      var(--sjc-ease-in);
+  }
+}
+
+.sjc-slide-right {
+  &-enter-active {
+    animation: sjc-slide-right-enter var(--sjc-duration-base) both
+      var(--sjc-ease-out);
+  }
+
+  &-leave-active {
+    animation: sjc-slide-right-leave var(--sjc-duration-base) both
+      var(--sjc-ease-in);
+  }
+}

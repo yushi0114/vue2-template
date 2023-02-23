@@ -1,0 +1,22 @@
+.sjc-page-panel {
+    overflow-x: auto;
+    box-sizing: border-box;
+    padding: var(--sjc-padding-lg);
+    min-height: calc(100vh - var(--sjc-nav-height));
+  
+    &__header {
+      display: flex;
+      padding-bottom: var(--sjc-padding-lg);
+      &-rest {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  
+    &__content {
+      min-width: 960px;
+      box-sizing: border-box;
+      flex: 1;
+    }
+  }
