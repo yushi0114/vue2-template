@@ -1,12 +1,3 @@
-/*
- * @Description:
- * @FilePath: \examples\vue.config.js.tpl
- * @Author: zys
- * @Date: 2023-02-24 09:18:43
- * @LastEditTime: 2023-02-24 10:43:14
- * @LastEditors: zys
- * @Reference:
- */
 const { defineConfig } = require('@vue/cli-service');
 const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -48,12 +39,12 @@ module.exports = defineConfig({
         module: {
             rules: [
                 {
-                    test: /\.md$/,
-                    use: [
-                        {
-                            loader: 'remark-loader',
-                        },
-                    ],
+                    // test: /\.md$/,
+                    // use: [
+                    //     {
+                    //         loader: 'remark-loader',
+                    //     },
+                    // ],
                 },
             ],
         },

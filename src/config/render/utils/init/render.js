@@ -1,7 +1,7 @@
 import Vue from "vue";
-import FastClick from "fastclick"; // 移动端click事件解决方案
-import VueCookie from "vue-cookie"; // cookie操作库
-import VueLazyLoad from "vue-lazyload"; // 图片懒加载库
+// import FastClick from "fastclick"; // 移动端click事件解决方案
+// import VueCookie from "vue-cookie"; // cookie操作库
+// import VueLazyLoad from "vue-lazyload"; // 图片懒加载库
 import selfFilters from "../filters"; // 导入默认过滤器
 import selfDirectives from "../directives"; // 导入默认指令
 import registerRouteGuard from "../auth"; // 导入鉴权系统
@@ -91,11 +91,11 @@ const render = (
   // 为Vue注册全局组件
   plugins.map((item) => Vue.use(item));
   // 解决移动端的300ms延迟问题(默认不启用)
-  fastclick && FastClick.attach(document.body);
+  // fastclick && FastClick.attach(document.body);
   // 是否使用VueCookie(默认不启用)
-  cookie && Vue.use(VueCookie);
+  // cookie && Vue.use(VueCookie);
   // 启动图片懒加载(默认不启用)
-  DataType.isObject(lazyOptions) && Vue.use(VueLazyLoad, lazyOptions);
+  // DataType.isObject(lazyOptions) && Vue.use(VueLazyLoad, lazyOptions);
   // 在实例化vue前 可传入回调函数自定义逻辑
   fncBeforeVue && fncBeforeVue(Vue);
   // 执行鉴权系统
