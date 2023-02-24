@@ -1,8 +1,8 @@
 {
-    "name": "<% name %>",
+    "name": "<%= name %>",
     "version": "0.1.0",
     "private": true,
-    "description": "<% description %>",
+    "description": "<%= description %>",
     "scripts": {
         "build": "vue-cli-service build",
         "build:test": "vue-cli-service build --mode test",
