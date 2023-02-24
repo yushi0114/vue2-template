@@ -1,0 +1,33 @@
+:root {
+    --sjc-board-background: var(--sjc-background-2);
+    --sjc-board-border: var(--sjc-border-color);
+    --sjc-board-border-width: var(--sjc-border-width);
+    --sjc-board-padding: var(--sjc-padding-md);
+}
+
+.sjc-board {
+    border-radius: var(--sjc-radius-md);
+    box-sizing: border-box;
+    background-color: var(--sjc-board-background);
+    border-color: var(--sjc-board-border);
+    padding: var(--sjc-board-padding);
+    display: flex;
+    flex-direction: column;
+
+    &--bordered {
+        border-width: var(--sjc-board-border-width);
+        border-style: solid;
+    }
+
+    &--full {
+        min-height: 100%;
+        flex: 1;
+    }
+
+    &--focus-full {
+        height: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        flex: 1;
+    }
+}

@@ -1,0 +1,74 @@
+.sjc-flex-column {
+  display: flex;
+  flex-direction: column;
+
+  &--rest {
+    flex: 1;
+  }
+
+  &--horizontal-center {
+    align-items: center;
+  }
+
+  &--horizontal-start {
+    align-items: start;
+  }
+
+  &--horizontal-end {
+    align-items: flex-end;
+  }
+
+  &--vertical-start {
+    justify-content: flex-start;
+  }
+
+  &--vertical-center {
+    justify-content: center;
+  }
+
+  &--vertical-end {
+    justify-content: flex-end;
+  }
+
+  &--vertical-between {
+    justify-content: space-between;
+  }
+
+  &--vertical-around {
+    justify-content: space-around;
+  }
+
+  &--vertical-evenly {
+    justify-content: space-evenly;
+  }
+
+  &--gap-base {
+    gap: var(--sjc-padding-base);
+
+  }
+
+  &--gap-xs {
+    gap: var(--sjc-padding-xs);
+
+  }
+
+  &--gap-sm {
+    gap: var(--sjc-padding-sm);
+
+  }
+
+  &--gap-md {
+    gap: var(--sjc-padding-md);
+
+  }
+
+  &--gap-lg {
+    gap: var(--sjc-padding-lg);
+
+  }
+
+  &--gap-xl {
+    gap: var(--sjc-padding-xl);
+
+  }
+}

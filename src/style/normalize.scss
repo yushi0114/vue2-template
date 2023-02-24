@@ -1,0 +1,40 @@
+html {
+  -webkit-tap-highlight-color: transparent;
+  font-size: var(--sjc-font-size-md);
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sjc-base-font);
+  height: 100%;
+  color: var(--sjc-text-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+a,
+input,
+button,
+textarea,
+[class*='van-'] {
+  &:focus {
+    outline: none;
+  }
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

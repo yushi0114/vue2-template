@@ -1,0 +1,11 @@
+.sjc-login {
+    position: absolute;
+    right: 100px;
+    bottom: 50%;
+    height: 300px;
+    &__code {
+        width: 150px;
+        height: 30px;
+        overflow: hidden;
+    }
+}

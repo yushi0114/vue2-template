@@ -1,0 +1,14 @@
+.sjc-layout {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    overflow: auto;
+  }
+  
+  .sjc-layout--vertical {
+    flex-direction: column;
+  }
+  
+  .sjc-layout--horizontal {
+    flex-direction: row;
+  }

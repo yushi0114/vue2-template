@@ -1,0 +1,18 @@
+.loading-enter-active {
+    animation: loading-visible 0.5s;
+  }
+  .loading-leave-active {
+    opacity: 0;
+  }
+  @keyframes loading-visible {
+    0% {
+      opacity: 0;
+      transform: translate(-10px);
+    }
+    50% {
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0px);
+    }
+  }
