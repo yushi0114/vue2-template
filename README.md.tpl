@@ -1,4 +1,4 @@
-# examples
+# <% name %>
 
 ## Project setup
 ```

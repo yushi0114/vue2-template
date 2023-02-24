@@ -5,7 +5,7 @@ let proxyHost = "10.0.30.5";
 module.exports = defineConfig({
   transpileDependencies: true,
   productionSourceMap: false,
-  outputDir: "name",
+  outputDir: "<% name %>",
   // publicPath: "/fstack/",
   configureWebpack: {
     plugins: [
