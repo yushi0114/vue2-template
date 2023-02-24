@@ -4,10 +4,10 @@
     "private": true,
     "description": "<%= description %>",
     "scripts": {
+        "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "build:test": "vue-cli-service build --mode test",
-        "build:doc": "vuese gen && vuese serve --open",
-        "serve": "vue-cli-service serve"
+        "build:doc": "vuese gen && vuese serve --open"
     },
     "dependencies": {
         "@vueuse/core": "^9.1.1",

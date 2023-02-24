@@ -1,23 +1,38 @@
-# <% name %>
+# <%= name %>
 
-## Project setup
+## 项目依赖安装
 ```
-pnpm install
-```
-
-### Compiles and hot-reloads for development
-```
-pnpm run serve
+npm install
 ```
 
-### Compiles and minifies for production
+## 本地开发
 ```
-pnpm run build
+npm run serve
 ```
 
-### Lints and fixes files
+### 构建打包
 ```
-pnpm run lint
+npm run build
+```
+
+### 生成公共组件文档（本地预览组件文档信息）
+```
+npm run build:doc
+```
+
+### 代码格式化
+```
+npm run lint
+```
+
+### 提交代码（初始化项目时选择安装了CZ）
+```
+npm run commit
+```
+
+### 版本更新及生成changelog（初始化项目时选择安装了CZ）
+```
+npm run release
 ```
 
 ### Customize configuration
