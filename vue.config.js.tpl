@@ -38,15 +38,18 @@ module.exports = defineConfig({
         },
         module: {
             rules: [
-                {
-                    // test: /\.md$/,
-                    // use: [
-                    //     {
-                    //         loader: 'remark-loader',
-                    //     },
-                    // ],
-                },
-            ],
+        {
+          test: /\.md$/,
+          use: [
+            {
+              loader: 'html-loader',
+            },
+            {
+              loader: 'markdown-loader',
+            },
+          ],
+        },
+      ],
         },
     },
     css: {

@@ -5,7 +5,7 @@ import { useStore } from "@/composables";
 import SjcHeader from "./header";
 
 const [name, bem] = createNamespace("app-container");
-
+const store = useStore();
 const handleCommand = (command) => {
   store.dispatch("user/logout");
 };

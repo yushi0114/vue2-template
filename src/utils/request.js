@@ -20,6 +20,7 @@ const veryAxiosConfig = {
     // 支持 400/401/403/404/405/413/414/500/502/504/任意其他 errno
     401: () => {
       Message.error("登录失效，请重新登录！");
+      removeToken();
       router.replace({ path: "/login" });
     },
     403: () => {
@@ -32,7 +33,6 @@ const veryAxiosConfig = {
       router.push({ name: "Exception404" });
     },
     10010: () => {
-      console.log("32323：", 32323);
       removeToken();
       router.replace({ path: "/login" });
     },

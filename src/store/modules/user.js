@@ -3,7 +3,6 @@ import {
   storage,
   setToken as _setToken,
   setDebug,
-  noop,
 } from "@/utils";
 import { AuthApi } from "@/api";
 import { systemStorageKeys } from "@/config/constants";

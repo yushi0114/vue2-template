@@ -2,6 +2,9 @@
 
 export default function configValidator (options) {
   // const validator = new Validator();
+  const validator = {
+    validate: () => {}
+  };
   const schema = {
     title: 'very-axios options schema validator',
     type: 'object',
@@ -22,13 +25,12 @@ export default function configValidator (options) {
     }
   };
 
-  // const { errors } = validator.validate(options, schema);
-  // const hasError = errors.length > 0;
-  // if (hasError) {
-  //   errors.forEach((err) => {
-  //     console.error(`very-axios: ${err.property.split('instance.')[1]} ${err.message}`);
-  //   });
-  // }
-  // return hasError;
-  return true;
+  const { errors } = validator.validate(options, schema);
+  const hasError = errors.length > 0;
+  if (hasError) {
+    errors.forEach((err) => {
+      console.error(`very-axios: ${err.property.split('instance.')[1]} ${err.message}`);
+    });
+  }
+  return hasError;
 }
