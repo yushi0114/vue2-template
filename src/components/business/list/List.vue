@@ -8,7 +8,7 @@ export default {
 };
 </script>
 <script setup>
-import { ref, defineProps, watch, toRefs, defineExpose } from "vue";
+import { ref, watch, toRefs } from "vue";
 import { noop } from "@/utils";
 import { useList } from "@/composables";
 
