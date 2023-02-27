@@ -65,10 +65,10 @@ const render = (
   }
   // 提取render配置参数
   const {
-    fastclick = false,
-    cookie = false,
+    // fastclick = false,
+    // cookie = false,
     auth = true,
-    lazyOptions,
+    // lazyOptions,
     plugins = [],
     filters = [],
     directives = [],

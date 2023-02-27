@@ -1,4 +1,4 @@
-import { Ref, watch, isRef, unref, onUnmounted, onDeactivated } from 'vue';
+import { watch, isRef, unref, onUnmounted, onDeactivated } from 'vue';
 import { onMountedOrActivated } from '../onMountedOrActivated';
 import { inBrowser } from '../utils';
 

@@ -83,7 +83,7 @@ export class DataType {
      * @param {*} value
      */
     static isUndefined(value) {
-        return !isDefined(value);
+        return !this.isDefined(value);
     }
 
     /**
@@ -167,7 +167,7 @@ export class DataType {
      * @param {*} value
      */
     static isPromise(value) {
-        return is(value, 'Promise') && isObject(value) && isFunction(value.then) && isFunction(value.catch);
+        return is(value, 'Promise') && this.isObject(value) && this.isFunction(value.then) && this.isFunction(value.catch);
     }
 
     /**
@@ -175,7 +175,7 @@ export class DataType {
      * @param {*} value
      */
     static isElement(value) {
-        return isObject(value) && !!value.tagName;
+        return this.isObject(value) && !!value.tagName;
     }
 
     /**
@@ -193,6 +193,6 @@ export class DataType {
     static isUrl(value) {
         const reg =
             /(((^https?:(?:\/\/)?)(?:[-:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&%@.\w_]*)#?(?:[\w]*))?)$/;
-        return reg.test(path);
+        return reg.test(value);
     }
 }

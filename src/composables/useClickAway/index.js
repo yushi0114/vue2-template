@@ -1,4 +1,4 @@
-import { Ref, unref } from 'vue';
+import { unref } from 'vue';
 import { inBrowser } from '../utils';
 import { useEventListener } from '../useEventListener';
 

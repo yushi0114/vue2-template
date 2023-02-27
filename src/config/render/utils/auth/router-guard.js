@@ -4,7 +4,6 @@
  * @description 鉴权路由守卫
  */
 import { storage, DataType } from "@/utils";
-import VaUserAuth from "./va-auth";
 import asyncRoutes from "./async-routes"; // 导入异步插入路由函数
 import { _routeGuardOptions } from "../../config/settings"; // 路由守卫配置项
 import { useNProgress } from '@/composables';
@@ -49,7 +48,7 @@ const registerRouteGuard = (
           .apiFn()
           .then((data) => {
             let _menu = data || []; /*  */
-            let { routes, permissions, menuList } = asyncRoutes(
+            let { routes, permissions } = asyncRoutes(
               _menu,
               nextRoutes,
               menuOptions

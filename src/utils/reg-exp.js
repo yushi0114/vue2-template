@@ -1,5 +1,6 @@
+import { DataType } from "./type";
 export function isMobilePhone(phone) {
-    if (isNull(phone)) {
+    if (DataType.isNull(phone)) {
         return false;
     }
     return /^1[3|4|5|6|7|8|9][0-9]\d{8}$/.test(phone);
@@ -7,7 +8,7 @@ export function isMobilePhone(phone) {
 
 // 手机号脱敏
 export function hiddenPhone(telephone) {
-    if (!isNull(telephone) && isMobilePhone(telephone)) {
+    if (!DataType.isNull(telephone) && isMobilePhone(telephone)) {
         const prefix = telephone.slice(0, 3);
         const suffix = telephone.slice(7, 11);
         return prefix + '****' + suffix;
@@ -18,7 +19,7 @@ export function hiddenPhone(telephone) {
 
 //银行卡号脱敏 身份证
 export function hiddenCarNo(carNo, start, end) {
-    if (!isNull(carNo)) {
+    if (!DataType.isNull(carNo)) {
         if (start == 0) {
             var num = '***************';
             var end = carNo.slice(carNo.length - end, carNo.length);

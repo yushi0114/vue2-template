@@ -21,6 +21,7 @@ const user = {
   mutations: {
     setToken(state, data) {
       _setToken(data.token);
+      state.token = data.token;
     },
     // 设置用户信息
     setUserInfo(state, userInfo) {
@@ -44,7 +45,9 @@ const user = {
               resolve();
             });
           })
-          .catch(noop);
+          .catch(() => {
+            reject();
+          });
       });
     },
     saveInfo({ commit }, result) {

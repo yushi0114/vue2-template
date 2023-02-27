@@ -52,7 +52,7 @@ export const setPrefix = (prefix = "") => {
 };
 
 class Storage {
-  constructor(options = {}) {
+  constructor() {
     this.prefix = "sjc";
     this.type = StorageType.LOCAL;
     // this.debug = !process && process.env.NODE_ENV !== 'production';

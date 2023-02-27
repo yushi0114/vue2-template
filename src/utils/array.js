@@ -280,8 +280,8 @@ const autoPositionAfterDelete = (
   key,
   delId,
   actId,
-  isTree,
-  keyParent
+  // isTree,
+  // keyParent
 ) => {
   // 源数据校验
   if (!Array.isArray(data)) throw Error("data必须是一个数组");

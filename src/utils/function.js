@@ -215,38 +215,6 @@ export function throttle(fn, delay = 300) {
 }
 
 /**
- * @func pointer
- * @desc 对象取值，支持多级取值，模拟点语法
- * @param {Record<string, any>} obj 源对象
- * @param {string[]} path 取值路径
- * @return {*}
- * @Author: 张玉石
- * @Date: 2022-07-20
- * @LastEditTime: 2022-07-20
- * @LastEditors: 张玉石
- */
-export function pointer(obj, path = []) {
-  return new Proxy(() => {}, {
-    get(target, property) {
-      return pointer(obj, path.concat(property));
-    },
-    apply(target, self, args) {
-      let val = obj;
-      let parent;
-      for (let i = 0; i < path.length; i++) {
-        if (val === null || val === undefined) break;
-        parent = val;
-        val = val[path[i]];
-      }
-      if (val === null || val === undefined) {
-        val = args[0];
-      }
-      return val;
-    },
-  });
-}
-
-/**
  * @func get
  * @desc 对象取值，支持多级取值，模拟点语法
  * @param {Record<string, any>} obj 源对象
@@ -294,7 +262,7 @@ export const logError = () => {
  * @return {Boolean} 是否通过验证
  */
 export const validate = (schema, values) => {
-  for (field in schema) {
+  for (const field in schema) {
     if (schema[field].required) {
       if (!values[field]) {
         return false;
@@ -382,12 +350,12 @@ export const omit = (obj, uselessKeys) => {
  * @returns
  */
 export function pick(obj, keys) {
-  if (!keys instanceof Array || keys.length === 0) return;
+  if (!(keys instanceof Array) || keys.length === 0) return;
   let returnObj = {};
   keys.forEach((item) => {
     if (obj.hasOwnProperty(item)) returnObj[item] = obj[item];
   });
   return returnObj;
 }
-export const noop = (..._) => {};
-export const no = (..._) => false;
+export const noop = () => {};
+export const no = () => false;

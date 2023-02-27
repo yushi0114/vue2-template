@@ -1,5 +1,5 @@
 import { useRect, useWindowSize } from '../composables';
-import { unref, Ref } from 'vue';
+import { unref } from 'vue';
 import { DataType } from './type';
 
 // export type ScrollElement = Element | Window;

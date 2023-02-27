@@ -25,17 +25,6 @@ const permission = {
     },
   },
   actions: {
-    generateRoutes({ commit }, roleId) {
-      return new Promise((resolve) => {
-        getWebRouters(roleId).then((res) => {
-          const initMenuData = JSON.parse(JSON.stringify(res.data));
-          commit("setMenuRouters", initMenuData);
-          const routerData = JSON.parse(JSON.stringify(res.data));
-          const menuRouters = filterRouter(routerData);
-          resolve(menuRouters);
-        });
-      });
-    },
   },
 };
 

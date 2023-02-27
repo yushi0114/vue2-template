@@ -29,7 +29,7 @@ const newWhiteList = Object.assign(whiteList, {
 Object.keys(newWhiteList).forEach((key) => {
     newWhiteList[key] = [...newWhiteList[key], ...commonAttrs];
 });
-const onIgnoreTagAttr = (tag, name, value, isWhiteAttr) => {
+const onIgnoreTagAttr = (tag, name, value) => {
     if (name.substr(0, 5) === 'data-') {
         // 通过内置的escapeAttrValue函数来对属性值进行转义
         return name + '="' + escapeAttrValue(value) + '"';

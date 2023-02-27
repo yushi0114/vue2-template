@@ -32,6 +32,6 @@ export function exportExcel(
 
   option.fileName = fileName // 文件名
   option.datas = dataSource
-  const toExcel = new ExportJsonExcel(option)
-  toExcel.saveExcel()
+  // const toExcel = new ExportJsonExcel(option)
+  // toExcel.saveExcel()
 }
