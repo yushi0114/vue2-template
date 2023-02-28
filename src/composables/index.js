@@ -11,3 +11,4 @@ export * from './useList';
 export * from './useCounter';
 export * from './useNProgress';
 export * from './useExpose';
+export * from './useRelation';
