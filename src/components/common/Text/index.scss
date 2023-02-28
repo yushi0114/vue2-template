@@ -1,6 +1,9 @@
+:root {
+    --sjc-text-color-default: currentColor;
+}
 .sjc-text {
     display: inline;
-    color: currentColor;
+    color: var(--sjc-text-color-default);
 
     &--underline {
         text-decoration-line: underline;

@@ -18,6 +18,15 @@ export default {
         return ["xs", "sm", "md", "lg", "xl", "current"].includes(value);
       },
     },
+    // 图标大小
+    iconSize: {
+      // `'xs'` / `'sm'` / `'md'` / `'lg'` / `'xl'` / `'current'`
+      type: String,
+      default: "sm",
+      validator(value) {
+        return ["xs", "sm", "md", "lg", "xl", "current"].includes(value);
+      },
+    },
     // 字体对齐
     align: {
       // `'left'` / `'center'` / `'right'` / `'justify'`
@@ -85,6 +94,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    // 图标
+    icon: {
+      type: String,
+      default: "",
+    },
+    // 图标放置位置
+    iconPosition: {
+      // `left` / `right`
+      type: String,
+      default: "left",
+    },
   },
   data() {
     return { bem };
@@ -110,8 +130,24 @@ export default {
     v-bind="$attrs"
     v-on="$listeners"
   >
+    <i
+      :class="[
+        icon,
+        `el-icon--left`,
+        bem({ [iconSize]: iconSize !== 'current' }),
+      ]"
+      v-if="icon && iconPosition === 'left'"
+    ></i>
     <!-- 任意文字 -->
     <slot />
+    <i
+      :class="[
+        icon,
+        `el-icon--right`,
+        bem({ [iconSize]: iconSize !== 'current' }),
+      ]"
+      v-if="icon && iconPosition === 'right'"
+    ></i>
   </span>
 </template>
 <style lang="scss" scoped>

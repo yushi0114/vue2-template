@@ -13,3 +13,5 @@ export function cancelRaf(id) {
 export function doubleRaf(fn) {
   raf(() => raf(fn));
 }
+
+export const extend = Object.assign;
