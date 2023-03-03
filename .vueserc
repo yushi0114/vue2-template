@@ -1,8 +1,8 @@
 {
-  "include": [
-    "./src/components/**/**/*.vue"
-  ],
-  "title": "公共组件库",
-  "genType": "docute",
-  "outDir": "./docs"
+    "include": [
+        "./src/components/**/**/*.vue"
+    ],
+    "title": "公共组件库",
+    "genType": "docute",
+    "outDir": "./docs"
 }

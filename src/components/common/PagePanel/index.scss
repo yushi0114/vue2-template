@@ -1,12 +1,12 @@
-.sjc-page-panel {
+.i-page-panel {
     overflow-x: auto;
     box-sizing: border-box;
-    padding: var(--sjc-padding-lg);
-    min-height: calc(100vh - var(--sjc-nav-height));
+    padding: var(--i-padding-lg);
+    min-height: calc(100vh - var(--i-nav-height));
   
     &__header {
       display: flex;
-      padding-bottom: var(--sjc-padding-lg);
+      padding-bottom: var(--i-padding-lg);
       &-rest {
         flex: 1;
         display: flex;

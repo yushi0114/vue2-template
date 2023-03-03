@@ -1,14 +1,14 @@
 html {
   -webkit-tap-highlight-color: transparent;
-  font-size: var(--sjc-font-size-md);
+  font-size: var(--i-font-size-md);
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: var(--sjc-base-font);
+  font-family: var(--i-base-font);
   height: 100%;
-  color: var(--sjc-text-color);
+  color: var(--el-text-color-regular);
 }
 
 a {

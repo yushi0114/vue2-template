@@ -1,6 +1,6 @@
 <script>
 import { createNamespace } from "@/utils";
-import SjcText from "../Text";
+import IText from "../Text";
 
 const [name, bem] = createNamespace("texthoverable");
 /**
@@ -8,8 +8,8 @@ const [name, bem] = createNamespace("texthoverable");
  * 文字滑过高亮组件
  */
 export default {
-  name: 'SjcTexthoverable',
-  components: {SjcText},
+  name: "ITexthoverable",
+  components: { IText },
 
   data() {
     return { bem };
@@ -18,18 +18,18 @@ export default {
 </script>
 
 <template>
-  <sjc-text :class="bem()" v-bind="$attrs" v-on="$listeners">
+  <i-text :class="bem()" v-bind="$attrs" v-on="$listeners">
     <!-- 任意文字 -->
     <slot />
-  </sjc-text>
+  </i-text>
 </template>
 
 <style lang="scss">
-.sjc-texthoverable {
+.i-texthoverable {
   cursor: pointer;
 
   &:hover {
-    color: var(--sjc-primary-color);
+    color: var(--el-color-primary);
   }
 }
 </style>

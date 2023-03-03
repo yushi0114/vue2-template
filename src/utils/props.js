@@ -15,18 +15,18 @@ export const truthProp = {
 };
 
 export const falsyProp = {
-    type: Boolean,
-    default: false,
-  };
+  type: Boolean,
+  default: false,
+};
 
-export const makeRequiredProp =(type) => ({
+export const makeRequiredProp = (type) => ({
   type,
   required: true,
 });
 
-export const makeArrayProp =(defaultVal) => ({
+export const makeArrayProp = (defaultVal) => ({
   type: Array,
-  default: () => DataType.isArray(defaultVal) ? defaultVal : [],
+  default: () => (DataType.isArray(defaultVal) ? defaultVal : []),
 });
 
 export const makeNumberProp = (defaultVal) => ({

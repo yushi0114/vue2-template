@@ -1,18 +1,18 @@
 :root {
-    --sjc-text-ellipsis-line-height: inherit;
-    --sjc-text-ellipsis-action-color: var(--sjc-blue);
+    --i-text-ellipsis-line-height: inherit;
+    --i-text-ellipsis-action-color: var(--el-color-primary);
 }
 
-.sjc-text-ellipsis {
-    line-height: var(--sjc-text-ellipsis-line-height);
+.i-text-ellipsis {
+    line-height: var(--i-text-ellipsis-line-height);
     white-space: pre-wrap;
 
     &__action {
         cursor: pointer;
-        color: var(--sjc-text-ellipsis-action-color);
+        color: var(--i-text-ellipsis-action-color);
 
         &:active {
-            opacity: var(--sjc-active-opacity);
+            opacity: var(--i-active-opacity);
         }
     }
 }

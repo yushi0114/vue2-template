@@ -1,5 +1,9 @@
 <template>
-  <el-result class="exception-wrapper" title="404" subTitle="抱歉，您访问的页面不存在">
+  <el-result
+    class="exception-wrapper"
+    title="404"
+    subTitle="抱歉，您访问的页面不存在"
+  >
     <template slot="icon">
       <el-image :src="img"></el-image>
     </template>
@@ -19,7 +23,7 @@ export default {
   data() {
     const _this = this;
     return {
-      img
+      img,
     };
   },
 };
@@ -28,6 +32,6 @@ export default {
 <style scoped>
 .exception-wrapper {
   height: 100%;
-  background-color: var(--sjc-background);
+  background-color: var(--i-background);
 }
 </style>

@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import img from '@/assets/images/exception/assets-result-maintenance.svg';
+import img from "@/assets/images/exception/assets-result-maintenance.svg";
 
 export default {
   name: "NetworkError",
   data() {
     return {
-      img
+      img,
     };
   },
 };
@@ -27,6 +27,6 @@ export default {
 <style scoped>
 .exception-wrapper {
   height: 100%;
-  background-color: var(--sjc-background);
+  background-color: var(--i-background);
 }
 </style>

@@ -1,11 +1,13 @@
 :root {
-    --sjc-nav-height: 48px !important;
-    --sjc-nav-background: var(--sjc-primary-color);
+    --i-nav-height: 48px !important;
+    --i-nav-background: #1B5CFF;
 }
-.sjc-header {
+.i-header {
     display: flex;
-    background-color: var(--sjc-nav-background);
-    padding: 0 var(--sjc-padding-md);
+    background-color: var(--i-nav-background);
+    padding: 0 var(--i-padding-md);
+    // box-shadow: var(--el-box-shadow);
+
     &__menu {
         flex: 1;
         height: 100%;
@@ -37,7 +39,7 @@
         white-space: nowrap;
         &-title {
           width: 100px;
-          color: var(--sjc-white);
+          color: var(--i-white);
         }
     }
 }

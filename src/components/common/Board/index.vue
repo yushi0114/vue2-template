@@ -1,5 +1,5 @@
 <script>
-import SjcText from "../Text";
+import IText from "../Text";
 import { createNamespace } from "@/utils";
 
 const [name, bem] = createNamespace("board");
@@ -8,9 +8,9 @@ const [name, bem] = createNamespace("board");
  * 页面面板（内容壳子）
  */
 export default {
-  name: "SjcBoard",
+  name: "IBoard",
   components: {
-    SjcText,
+    IText,
   },
   props: {
     // 页面标题
@@ -45,9 +45,9 @@ export default {
     :class="bem({ bordered, full, 'focus-full': focusFull })"
     v-bind="$attrs"
   >
-    <sjc-text :class="bem('title')" v-if="title" size="xl" truncate bold>{{
+    <i-text :class="bem('title')" v-if="title" size="xl" truncate bold>{{
       title
-    }}</sjc-text>
+    }}</i-text>
     <!-- 实际内容 -->
     <slot />
   </div>

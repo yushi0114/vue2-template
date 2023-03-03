@@ -48,12 +48,12 @@ export const setSystemKeys = (keys = []) => {
 
 export const setPrefix = (prefix = "") => {
   Storage.getInstance().prefix =
-    typeof prefix === "string" && prefix ? prefix : "sjc";
+    typeof prefix === "string" && prefix ? prefix : "i";
 };
 
 class Storage {
   constructor() {
-    this.prefix = "sjc";
+    this.prefix = "i";
     this.type = StorageType.LOCAL;
     // this.debug = !process && process.env.NODE_ENV !== 'production';
     StorageType.SESSION;
@@ -253,19 +253,13 @@ class Storage {
       case StorageAction.CHECK:
         break;
       case StorageAction.SET:
-        console.info(
-          `${type}--[${key}]存储成功---------------------------`
-        );
+        console.info(`${type}--[${key}]存储成功---------------------------`);
         break;
       case StorageAction.GET:
-        console.info(
-          `${type}--[${key}]取值成功---------------------------`
-        );
+        console.info(`${type}--[${key}]取值成功---------------------------`);
         break;
       case StorageAction.REMOVE:
-        console.info(
-          `${type}--[${key}]移除成功---------------------------`
-        );
+        console.info(`${type}--[${key}]移除成功---------------------------`);
         break;
       case StorageAction.CLEAR:
         console.info(`${type}--全部清除成功---------------------------`);

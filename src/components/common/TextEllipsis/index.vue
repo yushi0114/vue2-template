@@ -5,7 +5,7 @@
  * 对长文本进行省略，支持展开/收起。
  */
 export default {
-  name: "SjcTextEllipsis",
+  name: "ITextEllipsis",
 };
 </script>
 
@@ -15,7 +15,7 @@ import { ref, watch, onMounted } from "vue";
 // Composables
 import { useEventListener } from "@/composables";
 import { createNamespace, makeNumericProp, makeStringProp } from "@/utils";
-import SjcText from "../Text";
+import IText from "../Text";
 const [name, bem] = createNamespace("text-ellipsis");
 const props = defineProps({
   rows: makeNumericProp(1),
@@ -113,14 +113,14 @@ useEventListener("resize", calcEllipsised);
 </script>
 
 <template>
-  <sjc-text block v-bind="$attrs" v-on="$listeners">
+  <i-text block v-bind="$attrs" v-on="$listeners">
     <div ref="root" :class="bem()">
       {{ expanded ? content : text }}
       <span v-if="hasAction" :class="bem('action')" @click="onClickAction">
         {{ expanded ? collapseText : expandText }}
       </span>
     </div>
-  </sjc-text>
+  </i-text>
 </template>
 
 <style lang="scss">

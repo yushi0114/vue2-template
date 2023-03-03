@@ -81,22 +81,22 @@ defineExpose({
 
     <!-- 自定义加载状态插槽 -->
     <slot name="loading" v-if="loading && list.length !== 0">
-      <sjc-text align="center" size="sm" color="regular" block>
+      <i-text align="center" size="sm" color="regular" block>
         加载中···
-      </sjc-text>
+      </i-text>
     </slot>
     <!-- 自定义完成状态插槽 -->
     <slot name="empty" v-if="!loading && list.length === 0">
-      <sjc-text align="center" size="sm" color="regular" block>
+      <i-text align="center" size="sm" color="regular" block>
         没有更多数据了
-      </sjc-text>
+      </i-text>
     </slot>
   </div>
   <div v-else class="i-list" :class="[flex]">
-    <sjc-loading-board :loading="loading" :empty="list.length === 0">
+    <i-loading-board :loading="loading" :empty="list.length === 0">
       <!-- 列表详情插槽 -->
       <slot :list="list"></slot>
-    </sjc-loading-board>
+    </i-loading-board>
   </div>
 </template>
 

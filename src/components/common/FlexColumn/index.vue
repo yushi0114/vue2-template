@@ -49,8 +49,8 @@ export default {
     },
   },
   data() {
-    bem
-  }
+    return { bem };
+  },
 };
 </script>
 <template>

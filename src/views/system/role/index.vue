@@ -23,12 +23,12 @@ linkChildren({ add, count });
 </script>
 
 <template>
-  <sjc-page-panel full>
-    <sjc-board full title="角色管理">
-      <sjc-text block size="md" :class="bem()">我是角色管理啊</sjc-text>
+  <i-page-panel full>
+    <i-board full title="角色管理">
+      <i-text block size="md" :class="bem()">我是角色管理啊</i-text>
       <child />
-    </sjc-board>
-  </sjc-page-panel>
+    </i-board>
+  </i-page-panel>
 </template>
 
 <style lang="scss" scoped>

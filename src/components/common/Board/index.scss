@@ -1,21 +1,21 @@
 :root {
-    --sjc-board-background: var(--sjc-background-2);
-    --sjc-board-border: var(--sjc-border-color);
-    --sjc-board-border-width: var(--sjc-border-width);
-    --sjc-board-padding: var(--sjc-padding-md);
+    --i-board-background: var(--deep-bg-color);
+    --i-board-border: var(--el-border);
+    --i-board-border-width: var(--el-border-width);
+    --i-board-padding: var(--i-padding-md);
 }
 
-.sjc-board {
-    border-radius: var(--sjc-radius-md);
+.i-board {
+    border-radius: var(--i-radius-md);
     box-sizing: border-box;
-    background-color: var(--sjc-board-background);
-    border-color: var(--sjc-board-border);
-    padding: var(--sjc-board-padding);
+    background-color: var(--i-board-background);
+    border-color: var(--i-board-border);
+    padding: var(--i-board-padding);
     display: flex;
     flex-direction: column;
 
     &--bordered {
-        border-width: var(--sjc-board-border-width);
+        border-width: var(--i-board-border-width);
         border-style: solid;
     }
 

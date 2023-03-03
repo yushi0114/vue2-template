@@ -7,13 +7,13 @@ const [name, bem] = createNamespace("layout");
  * 页面布局盒子
  */
 export default {
-  name:"SjcLayout",
+  name: "ILayout",
   props: {
     // 布局方向
     type: {
       // `"vertical"` / `"horizontal"`
       type: String,
-      default: 'vertical',
+      default: "vertical",
       validator(value) {
         return ["vertical", "horizontal"].includes(value);
       },
@@ -31,5 +31,5 @@ export default {
   </div>
 </template>
 <style lang="scss">
-@import './index.scss';
+@import "./index.scss";
 </style>

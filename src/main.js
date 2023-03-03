@@ -2,6 +2,7 @@ import { render } from "@/config/render/index.js";
 import App from "./App.vue";
 import store from "./store";
 import router from "./router";
+import 'sjzx-web-kit/dist/style.css'
 import "@/style/index.scss";
 import { webSettings } from "@/config/setting";
 

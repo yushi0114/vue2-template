@@ -1,7 +1,7 @@
 import nextRoutes from "@/router/next-router";
 import routeMap from "@/router/map-router";
 import { MenuApi } from "@/api";
-import { elementUiComponents } from "@/plugins";
+import { elementUiComponents, webKitComponents } from "@/plugins";
 import { commonComponentList } from '@/components'
 import { systemStorageKeys } from './constants';
 
@@ -12,7 +12,7 @@ export const webSettings = {
     lazyOptions: null, // 默认null 启用图片懒加载插件时的配置项
     filters: [], // 默认[] 过滤器数组 格式为 {name:"", rule: ()=>{}}
     directives: [], // 默认[] 指令数组 格式为 {name:"", rule: ()=>{}}
-    plugins: [...elementUiComponents, ...commonComponentList], // 默认[] 插件数组 [el-input] 可以直接Vue.use()的插件数组
+    plugins: [...elementUiComponents, ...commonComponentList, ...webKitComponents], // 默认[] 插件数组 [el-input] 可以直接Vue.use()的插件数组
     fncBeforeVue() {}, // 实例化vue前可执行的回调函数 fncBeforeVue(vue){... 你的逻辑}
     auth: true, // 是否需要鉴权系统，如果不需要，后续参数无需再传
   },
@@ -24,7 +24,6 @@ export const webSettings = {
     pathLogin: "/login", // 登录页的 router path
     pathLogged: "/", // 已登录后 再进登录页要重定向的 router path
     apiFn: MenuApi.getMenuApi, // 获取菜单数据的api函数
-    vaJwtExpiredFn: () => {}, // 自定义校验jwt是否过期的函数
   }, // 路由守卫配置项 下为详细注解
   menuOptions: {
     url: "path", // 前端地址栏路由 将映射真实文件路径 映射规则：import(`@/views${url}/index.vue`)

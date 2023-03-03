@@ -8,7 +8,7 @@ const [name, bem] = createNamespace("page-panel");
  * 页面级容器盒子（添加背景色及外边距等功能）
  */
 export default {
-  name: 'SjcPagePanel',
+  name: "IPagePanel",
   components: {
     Layout,
   },
@@ -16,13 +16,13 @@ export default {
     // 页面标题
     title: {
       type: String,
-      default: ''
+      default: "",
     },
     // 高度是否铺满
     full: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return { bem };
@@ -34,7 +34,7 @@ export default {
   <Layout :class="bem()" v-bind="$attrs" v-on="$listeners">
     <!-- -->
     <header :class="bem('header')" v-if="title">
-      {{title}}
+      {{ title }}
       <div :class="bem('header-rest')">
         <button>delete</button>
         <button>edit</button>

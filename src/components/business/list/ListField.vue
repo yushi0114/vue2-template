@@ -39,7 +39,7 @@ const size = computed(() => {
 </script>
 
 <template>
-  <sjc-text
+  <i-text
     v-bind="$attrs"
     v-on="$listeners"
     class="list-field"
@@ -49,7 +49,7 @@ const size = computed(() => {
     <span v-if="label"> {{ label }}: </span>
     <!-- 字段内容 -->
     <slot></slot>
-  </sjc-text>
+  </i-text>
 </template>
 
 <style lang="scss">

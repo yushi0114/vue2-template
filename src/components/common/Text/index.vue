@@ -7,7 +7,7 @@ const [name, bem] = createNamespace("text");
  * 文字组件，统一文字处理风格
  */
 export default {
-  name: "SjcText",
+  name: "IText",
   props: {
     // 字体大小
     size: {

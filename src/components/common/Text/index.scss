@@ -1,9 +1,9 @@
 :root {
-    --sjc-text-color-default: currentColor;
+    --i-text-color-default: currentColor;
 }
-.sjc-text {
+.i-text {
     display: inline;
-    color: var(--sjc-text-color-default);
+    color: var(--i-text-color-default);
 
     &--underline {
         text-decoration-line: underline;
@@ -48,63 +48,67 @@
     }
 
     &--xs {
-        font-size: var(--sjc-font-size-xs);
-    line-height: var(--sjc-line-height-xs);
+        font-size: var(--i-font-size-xs);
+    line-height: var(--i-line-height-xs);
     }
 
     &--sm {
-        font-size: var(--sjc-font-size-sm);
-    line-height: var(--sjc-line-height-sm);
+        font-size: var(--i-font-size-sm);
+    line-height: var(--i-line-height-sm);
     }
 
     &--md {
-        font-size: var(--sjc-font-size-md);
-    line-height: var(--sjc-line-height-md);
+        font-size: var(--i-font-size-md);
+    line-height: var(--i-line-height-md);
     }
 
     &--lg {
-        font-size: var(--sjc-font-size-lg);
-    line-height: var(--sjc-line-height-lg);
+        font-size: var(--i-font-size-lg);
+    line-height: var(--i-line-height-lg);
     }
 
     &--xl {
-        font-size: var(--sjc-font-size-xl);
-    line-height: var(--sjc-line-height-xl);
+        font-size: var(--i-font-size-xl);
+    line-height: var(--i-line-height-xl);
     }
 
     &--color-primary {
-        color: var(--sjc-primary-color);
+        color: var(--el-color-primary);
     }
 
     &--color-error, &--color-exception, &--color-danger {
-        color: var(--sjc-danger-color);
+        color: var(--el-color-danger);
     }
 
     &--color-success {
-        color: var(--sjc-success-color);
+        color: var(--el-color-success);
     }
 
     &--color-warning {
-        color: var(--sjc-warning-color);
+        color: var(--el-color-warning);
     }
 
     &--color-info {
-        color: var(--sjc-text-color-2);
+        color: var(--el-color-info);
     }
 
     &--color-paragraph {
-        color: var(--sjc-text-color);
+        color: var(--i-text-color-primary);
     }
 
     &--color-regular {
-        color: var(--sjc-text-color-2);
+        color: var(--i-text-color-regular);
     }
 
     &--color-secondary {
-        color: var(--sjc-text-color-2);
+        color: var(--i-text-color-secondary);
     }
 
-    &--color-placeholder, &--color-disabled {
-        color: var(--sjc-text-color-3);
+    &--color-placeholder {
+        color: var(--i-text-color-placeholder);
+    }
+
+    &--color-disabled {
+        color: var(--i-text-color-disabled);
     }
   }

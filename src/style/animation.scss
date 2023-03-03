@@ -1,52 +1,52 @@
-@keyframes sjc-slide-up-enter {
+@keyframes i-slide-up-enter {
   from {
     transform: translate3d(0, 100%, 0);
   }
 }
 
-@keyframes sjc-slide-up-leave {
+@keyframes i-slide-up-leave {
   to {
     transform: translate3d(0, 100%, 0);
   }
 }
 
-@keyframes sjc-slide-down-enter {
+@keyframes i-slide-down-enter {
   from {
     transform: translate3d(0, -100%, 0);
   }
 }
 
-@keyframes sjc-slide-down-leave {
+@keyframes i-slide-down-leave {
   to {
     transform: translate3d(0, -100%, 0);
   }
 }
 
-@keyframes sjc-slide-left-enter {
+@keyframes i-slide-left-enter {
   from {
     transform: translate3d(-100%, 0, 0);
   }
 }
 
-@keyframes sjc-slide-left-leave {
+@keyframes i-slide-left-leave {
   to {
     transform: translate3d(-100%, 0, 0);
   }
 }
 
-@keyframes sjc-slide-right-enter {
+@keyframes i-slide-right-enter {
   from {
     transform: translate3d(100%, 0, 0);
   }
 }
 
-@keyframes sjc-slide-right-leave {
+@keyframes i-slide-right-leave {
   to {
     transform: translate3d(100%, 0, 0);
   }
 }
 
-@keyframes sjc-fade-in {
+@keyframes i-fade-in {
   from {
     opacity: 0;
   }
@@ -56,7 +56,7 @@
   }
 }
 
-@keyframes sjc-fade-out {
+@keyframes i-fade-out {
   from {
     opacity: 1;
   }
@@ -66,7 +66,7 @@
   }
 }
 
-@keyframes sjc-rotate {
+@keyframes i-rotate {
   from {
     transform: rotate(0deg);
   }
@@ -76,60 +76,60 @@
   }
 }
 
-.sjc-fade {
+.i-fade {
   &-enter-active {
-    animation: var(--sjc-duration-base) sjc-fade-in both var(--sjc-ease-out);
+    animation: var(--i-duration-base) i-fade-in both var(--i-ease-out);
   }
 
   &-leave-active {
-    animation: var(--sjc-duration-base) sjc-fade-out both var(--sjc-ease-in);
+    animation: var(--i-duration-base) i-fade-out both var(--i-ease-in);
   }
 }
 
-.sjc-slide-up {
+.i-slide-up {
   &-enter-active {
-    animation: sjc-slide-up-enter var(--sjc-duration-base) both
-      var(--sjc-ease-out);
+    animation: i-slide-up-enter var(--i-duration-base) both
+      var(--i-ease-out);
   }
 
   &-leave-active {
-    animation: sjc-slide-up-leave var(--sjc-duration-base) both
-      var(--sjc-ease-in);
+    animation: i-slide-up-leave var(--i-duration-base) both
+      var(--i-ease-in);
   }
 }
 
-.sjc-slide-down {
+.i-slide-down {
   &-enter-active {
-    animation: sjc-slide-down-enter var(--sjc-duration-base) both
-      var(--sjc-ease-out);
+    animation: i-slide-down-enter var(--i-duration-base) both
+      var(--i-ease-out);
   }
 
   &-leave-active {
-    animation: sjc-slide-down-leave var(--sjc-duration-base) both
-      var(--sjc-ease-in);
+    animation: i-slide-down-leave var(--i-duration-base) both
+      var(--i-ease-in);
   }
 }
 
-.sjc-slide-left {
+.i-slide-left {
   &-enter-active {
-    animation: sjc-slide-left-enter var(--sjc-duration-base) both
-      var(--sjc-ease-out);
+    animation: i-slide-left-enter var(--i-duration-base) both
+      var(--i-ease-out);
   }
 
   &-leave-active {
-    animation: sjc-slide-left-leave var(--sjc-duration-base) both
-      var(--sjc-ease-in);
+    animation: i-slide-left-leave var(--i-duration-base) both
+      var(--i-ease-in);
   }
 }
 
-.sjc-slide-right {
+.i-slide-right {
   &-enter-active {
-    animation: sjc-slide-right-enter var(--sjc-duration-base) both
-      var(--sjc-ease-out);
+    animation: i-slide-right-enter var(--i-duration-base) both
+      var(--i-ease-out);
   }
 
   &-leave-active {
-    animation: sjc-slide-right-leave var(--sjc-duration-base) both
-      var(--sjc-ease-in);
+    animation: i-slide-right-leave var(--i-duration-base) both
+      var(--i-ease-in);
   }
 }

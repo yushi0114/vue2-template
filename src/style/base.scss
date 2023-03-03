@@ -1,26 +1,26 @@
 @import './mixins/clearfix.scss';
 @import './mixins/ellipsis.scss';
 
-.sjc-clearfix {
+.i-clearfix {
     @include clearfix;
   }
 
-.sjc-ellipsis {
+.i-ellipsis {
   @include ellipsis();
 }
   
-.sjc-multi-ellipsis--l2 {
+.i-multi-ellipsis--l2 {
   @include multi-ellipsis(2);
 }
   
-.sjc-multi-ellipsis--l3 {
+.i-multi-ellipsis--l3 {
   @include multi-ellipsis(3);
 }
 
-.sjc-haptics-feedback {
+.i-haptics-feedback {
     cursor: pointer;
   
     &:active {
-      opacity: var(--sjc-active-opacity);
+      opacity: var(--i-active-opacity);
     }
   }

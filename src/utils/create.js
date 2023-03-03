@@ -19,19 +19,22 @@
 // export type Mods = Mod | Mod[];
 
 function genBem(name, mods) {
-    if (!mods) {
-        return '';
-    }
+  if (!mods) {
+    return "";
+  }
 
-    if (typeof mods === 'string') {
-        return ` ${name}--${mods}`;
-    }
+  if (typeof mods === "string") {
+    return ` ${name}--${mods}`;
+  }
 
-    if (Array.isArray(mods)) {
-        return mods.reduce((ret, item) => ret + genBem(name, item), '');
-    }
+  if (Array.isArray(mods)) {
+    return mods.reduce((ret, item) => ret + genBem(name, item), "");
+  }
 
-    return Object.keys(mods).reduce((ret, key) => ret + (mods[key] ? genBem(name, key) : ''), '');
+  return Object.keys(mods).reduce(
+    (ret, key) => ret + (mods[key] ? genBem(name, key) : ""),
+    ""
+  );
 }
 
 /**
@@ -43,21 +46,21 @@ function genBem(name, mods) {
  * b(['disabled', 'primary']) // 'button button--disabled button--primary'
  */
 export function createBEM(name) {
-    return (el, mods) => {
-        if (el && typeof el !== 'string') {
-            mods = el;
-            el = '';
-        }
+  return (el, mods) => {
+    if (el && typeof el !== "string") {
+      mods = el;
+      el = "";
+    }
 
-        el = el ? `${name}__${el}` : name;
+    el = el ? `${name}__${el}` : name;
 
-        return `${el}${genBem(el, mods)}`;
-    };
+    return `${el}${genBem(el, mods)}`;
+  };
 }
 
 // export type BEM = ReturnType<typeof createBEM>;
 
 export function createNamespace(name) {
-    const prefixedName = `sjc-${name}`;
-    return [prefixedName, createBEM(prefixedName)];
+  const prefixedName = `i-${name}`;
+  return [prefixedName, createBEM(prefixedName)];
 }

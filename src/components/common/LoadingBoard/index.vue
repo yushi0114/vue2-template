@@ -9,7 +9,7 @@ const [name, bem] = createNamespace("loading-board");
  * 处理加载及空状态盒子
  */
 export default {
-  name: "SjcLoadingBoard",
+  name: "ILoadingBoard",
   components: {
     Layout,
   },

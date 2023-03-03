@@ -37,14 +37,7 @@ export default {
       type: String,
       default: "none",
       validator(value) {
-        return [
-          "none",
-          "base",
-          "xs",
-          "sm",
-          "md",
-          "lg",
-        ].includes(value);
+        return ["none", "base", "xs", "sm", "md", "lg"].includes(value);
       },
     },
     // 是否撑满
@@ -62,15 +55,15 @@ export default {
 </script>
 <template>
   <div
-    class="sjc-flex-row"
+    class="i-flex-row"
     v-bind="$attrs"
     v-on="$listeners"
     :class="[
-      'sjc-flex-row-vertical-' + vertical,
-      'sjc-flex-row-horizontal-' + horizontal,
-      'sjc-flex-row-gap-' + gap,
-      full ? 'sjc-flex-row-full' : '',
-      rest && 'sjc-flex-row-rest',
+      'i-flex-row-vertical-' + vertical,
+      'i-flex-row-horizontal-' + horizontal,
+      'i-flex-row-gap-' + gap,
+      full ? 'i-flex-row-full' : '',
+      rest && 'i-flex-row-rest',
     ]"
   >
     <!-- 任意元素 -->
@@ -78,5 +71,5 @@ export default {
   </div>
 </template>
 <style lang="scss">
-@import './index.scss';
+@import "./index.scss";
 </style>

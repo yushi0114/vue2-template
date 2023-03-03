@@ -1,0 +1,14 @@
+:root {
+    --i-sidebar-bg: var(--deep-bg-color);
+    --i-sidebar-padding: var(--i-padding-md)
+}
+.i-sidebar {
+    min-width: 150px;
+    background-color: var(--i-sidebar-bg);
+    padding: var(--i-sidebar-padding);
+
+    &--active {
+        background-color: var(--el-color-primary-light-9);
+        color: var(--el-color-primary);
+    }
+}

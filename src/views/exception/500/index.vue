@@ -1,5 +1,9 @@
 <template>
-  <el-result class="exception-wrapper" title="500" subTitle="抱歉，服务器出错啦">
+  <el-result
+    class="exception-wrapper"
+    title="500"
+    subTitle="抱歉，服务器出错啦"
+  >
     <template slot="icon">
       <el-image :src="img"></el-image>
     </template>
@@ -27,6 +31,6 @@ export default {
 <style scoped>
 .exception-wrapper {
   height: 100%;
-  background-color: var(--sjc-background);
+  background-color: var(--i-background);
 }
 </style>

@@ -1,4 +1,4 @@
-.sjc-flex-column {
+.i-flex-column {
   display: flex;
   flex-direction: column;
 
@@ -43,32 +43,32 @@
   }
 
   &--gap-base {
-    gap: var(--sjc-padding-base);
+    gap: var(--i-padding-base);
 
   }
 
   &--gap-xs {
-    gap: var(--sjc-padding-xs);
+    gap: var(--i-padding-xs);
 
   }
 
   &--gap-sm {
-    gap: var(--sjc-padding-sm);
+    gap: var(--i-padding-sm);
 
   }
 
   &--gap-md {
-    gap: var(--sjc-padding-md);
+    gap: var(--i-padding-md);
 
   }
 
   &--gap-lg {
-    gap: var(--sjc-padding-lg);
+    gap: var(--i-padding-lg);
 
   }
 
   &--gap-xl {
-    gap: var(--sjc-padding-xl);
+    gap: var(--i-padding-xl);
 
   }
 }

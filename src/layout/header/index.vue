@@ -2,11 +2,11 @@
 import { nextTick, watch } from "vue";
 import { useDark } from "@vueuse/core";
 import { createNamespace } from "@/utils";
-import { useStore } from "@/composables";
-import SjcHeaderMenu from "../menu";
+import { useStore, useRouter } from "@/composables";
 
 const [name, bem] = createNamespace("header");
 
+const router = useRouter();
 const store = useStore();
 const username = store.getters.displayName;
 
@@ -37,8 +37,9 @@ watch(
 
 <template>
   <div :class="bem()">
+    <slot name="logo" />
     <div :class="bem('menu')">
-      <sjc-header-menu />
+      <slot name="menu"></slot>
     </div>
     <flex-row :class="bem('user')" gap="md">
       <el-switch
@@ -51,13 +52,9 @@ watch(
       </el-switch>
       <el-dropdown @command="handleCommand" :class="bem('user-dropdown')">
         <flex-row :class="bem('user-dropdown-title')">
-          <sjc-text
-            color="current"
-            truncate
-            block
-          >
+          <i-text color="current" truncate block>
             {{ username }}
-          </sjc-text>
+          </i-text>
           <i class="el-icon-arrow-down el-icon--right"></i>
         </flex-row>
         <el-dropdown-menu slot="dropdown">
