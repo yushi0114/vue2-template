@@ -6,7 +6,7 @@
 import { storage, DataType } from "@/utils";
 import asyncRoutes from "./async-routes"; // 导入异步插入路由函数
 import { _routeGuardOptions } from "../../config/settings"; // 路由守卫配置项
-import { useNProgress } from '@/composables';
+import { useNProgress } from "@/composables";
 /**
  * 注册路由守卫
  * @param {*} router router实例
@@ -48,17 +48,13 @@ const registerRouteGuard = (
           .apiFn()
           .then((data) => {
             let _menu = data || []; /*  */
-            let { routes, permissions } = asyncRoutes(
+            let { permissions, menuList } = asyncRoutes(
               _menu,
+              router,
               nextRoutes,
               menuOptions
             );
-            routes.forEach((route) => {
-              console.log("route: ", route);
-              router.addRoute(route); // 推入异步路由
-            });
-            console.log("routes: ", routes, router.getRoutes());
-            store.commit(_option.dispatchSetMenu, data); // 将菜单数据存入store
+            store.commit(_option.dispatchSetMenu, menuList); // 将菜单数据存入store
             store.commit(_option.dispatchSetPermissions, permissions); // 将权限码数据存入store
             next({ ...to, replace: true });
           })
@@ -79,7 +75,7 @@ const registerRouteGuard = (
 
   router.afterEach(() => {
     progress.done();
-});
+  });
 };
 
 export default registerRouteGuard;

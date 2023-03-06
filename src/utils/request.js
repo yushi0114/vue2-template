@@ -173,6 +173,7 @@ export const getOriginData = () => {
 
 export const DOMAIN = {
   SYS: "/clib-service",
+  DMS: '/dms-service'
 };
 
 // 生成签名时，get请求的参数，number类型都转换为string类型

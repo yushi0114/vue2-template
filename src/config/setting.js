@@ -3,7 +3,8 @@ import routeMap from "@/router/map-router";
 import { MenuApi } from "@/api";
 import { elementUiComponents, webKitComponents } from "@/plugins";
 import { commonComponentList } from '@/components'
-import { systemStorageKeys } from './constants';
+import { systemStorageKeys, SIGNIN_PATH, DEFAULT_REDIRECT_PATH, ERROR_404_PATH, ROOT_PATH, ROOT_NAME  } from './constants';
+import { genDynamicViewConfig } from "@/views";
 
 export const webSettings = {
   options: {
@@ -21,8 +22,8 @@ export const webSettings = {
     dispatchSetToken: "user/setToken", // store设置token的actions命名空间
     dispatchSetMenu: "menu/setMenuRouters", // store设置菜单的actions命名空间
     dispatchSetPermissions: "menu/setPermissions", // store设置按钮权限码的actions命名空间
-    pathLogin: "/login", // 登录页的 router path
-    pathLogged: "/", // 已登录后 再进登录页要重定向的 router path
+    pathLogin: SIGNIN_PATH, // 登录页的 router path
+    pathLogged: DEFAULT_REDIRECT_PATH, // 已登录后 再进登录页要重定向的 router path
     apiFn: MenuApi.getMenuApi, // 获取菜单数据的api函数
   }, // 路由守卫配置项 下为详细注解
   menuOptions: {
@@ -32,8 +33,11 @@ export const webSettings = {
     component: "component", // 对应前端组件名
     children: "children", // 子菜单字段
     permissions: "permissions", // 按钮权限字段
-    path404: "exception-404", // 404路径
+    rootPath: ROOT_PATH,
+    rootName: ROOT_NAME,
+    path404: ERROR_404_PATH, // 404路径
     mapPathFn: routeMap,
+    genDynamicViewConfig // 生成动态路由config
   }, // 菜单数据解析为路由数据配置项 下为详细注解
   nextRoutes, // 需要登录后插入的 非后台返回的 路由列表
 };

@@ -1,8 +1,8 @@
 export default (component) => {
-  if (component === "baseLayout") {
+  if (component === "/empty") {
     component = "layout/index.vue";
   } else {
-    component = `views/${component}`;
+    component = `views${component}`;
   }
   return () => import(`@/${component}`);
 };

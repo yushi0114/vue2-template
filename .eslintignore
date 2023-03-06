@@ -1,4 +1,4 @@
 // .eslintignore
 src/assets
 public
-<%= name %>
+name

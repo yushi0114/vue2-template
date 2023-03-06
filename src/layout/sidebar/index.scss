@@ -7,8 +7,10 @@
     background-color: var(--i-sidebar-bg);
     padding: var(--i-sidebar-padding);
 
-    &--active {
-        background-color: var(--el-color-primary-light-9);
-        color: var(--el-color-primary);
+    &__item {
+        &--active {
+            background-color: var(--el-color-primary-light-9);
+            color: var(--el-color-primary);
+        }
     }
 }

@@ -3,13 +3,13 @@
  */
 // 导出全部函数
 export * from "./props";
+export * from "./create";
 export * from "./type";
 export * from "./request";
 export * from "./storage";
 export * from "./url";
 export * from "./dom";
 export * from "./format";
-export * from "./create";
 export * from "./reg-exp";
 export * from "./file/base64Conver";
 export * from "./file/download";

@@ -14,6 +14,7 @@ export default {
         verifyCode: "",
         captcha: "",
         password: "8992E19C4A8F5A992FDC71C0C61B72F7",
+        tab: "dms",
       },
     };
   },
@@ -24,14 +25,14 @@ export default {
     ...mapActions("user", ["login"]),
     getVerifyCode() {
       return AuthApi.getVerifyCode()
-        .then(({ captcha }) => {
-          this.countAndPasswordForm.verifyCode = captcha;
+        .then((data) => {
+          this.countAndPasswordForm.verifyCode = data;
         })
         .catch(() => {});
     },
     handleLogin() {
-      this.login(omit(this.countAndPasswordForm, ['verifyCode'])).then(() => {
-        this.$router.push('/');
+      this.login(omit(this.countAndPasswordForm, ["verifyCode"])).then(() => {
+        this.$router.push("/");
       });
     },
   },

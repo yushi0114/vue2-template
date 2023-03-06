@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="i-fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
 <script>
+import { RouterView } from "vue-router";
 export default {
-  name: 'App',
-  components: {}
+  name: "App",
+  components: {
+    RouterView,
+  },
 };
 </script>
 

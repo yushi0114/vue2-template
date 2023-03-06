@@ -7,5 +7,6 @@ export function useRouter() {
 }
 
 export function useRoute() {
-  return getCurrentInstance().proxy.$route;
+  const currentInstance = getCurrentInstance();
+  return currentInstance ? currentInstance.proxy.$route : router.currentRoute;
 }

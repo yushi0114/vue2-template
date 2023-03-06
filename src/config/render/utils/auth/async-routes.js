@@ -10,6 +10,7 @@ import { _menuDataOptions } from "../../config/settings";
 /**
  * 异步推入鉴权路由 要求必须存在@/views/layout/index.vue主体视图盒子和/index首页路径
  * @param {Array} data 菜单数据
+ * @param router 路由
  * @param {Array} nextRoutes 需要登录后插入的 非后台返回的 路由列表
  * @param {Object} options 菜单数据解析为路由数据配置项 下面是字段及默认值说明
  * @description url: 'url', // 前端地址栏路由 将映射真实文件路径 映射规则：import(`@/views${url}/index.vue`)
@@ -21,7 +22,7 @@ import { _menuDataOptions } from "../../config/settings";
  * @description mapPathFn: ()=>{} // 路由映射文件路径函数
  * @returns {Object} {routes: 整理好的异步路由router.addRoutes()即可, permissions: 权限code码}
  */
-const asyncRoutes = (data, nextRoutes, options) => {
+const asyncRoutes = (data, router, nextRoutes, options) => {
   if (!DataType.isObject(options)) throw Error("options 必须是一个对象！");
   let _options = { ..._menuDataOptions, ...options };
   if (!_options.mapPathFn)
@@ -42,15 +43,39 @@ const asyncRoutes = (data, nextRoutes, options) => {
     let _url = item[_options.url];
     if (!_url) return;
     try {
+      const routePath = _options.rootPath + _url;
       let routerItem = {
-        path: _url, // 路由路径名
+        path: routePath, // 路由路径名
         name: item[_options.name], // 命名路由 用于配合菜单简洁跳转
-        meta: item[_options.meta], // 路由元信息 定义路由时即可携带的参数，可用来管理每个路由的按钮操作权限
+        meta: {
+          ...(item[_options.meta] ?? {}),
+          title: item.title,
+          menu: item.name,
+        }, // 路由元信息 定义路由时即可携带的参数，可用来管理每个路由的按钮操作权限
         component: _options.mapPathFn(item[_options.component]), // 路由映射真实视图路径
         parentId: item.parentId,
         id: item.id,
         title: item.title,
       };
+      const {routes: configRoutes} = _options?.genDynamicViewConfig(item[_options.component]);
+      console.log('routes: ', routes);
+      (configRoutes || []).map((route) => {
+        const newRoute = {
+          // 生成与父级相同字符串开始的路径 -> 侧边导航高亮
+          // demo-permisson/:id + /yourPath
+          path: routePath + route.path,
+          component: route.component,
+          meta: {
+            menu: routerItem.name,
+            ...route.meta,
+          },
+        };
+        if (route?.meta?.notRootChild) {
+          router.addRoute(newRoute);
+        } else {
+          router.addRoute(_options.rootName, newRoute);
+        }
+      });
       // 将所有权限码收集存入store
       let _permissions = item[_options.permissions];
       if (DataType.isArray(_permissions)) permissions.push(..._permissions);
@@ -71,10 +96,14 @@ const asyncRoutes = (data, nextRoutes, options) => {
     path: "*",
     redirect: _options.path404,
   };
+  const finalRoutes = [...routerBox, errorBox];
+  finalRoutes.forEach((route) => {
+    router.addRoute(route); // 推入异步路由
+  });
 
   return {
-    routes: [...routerBox, errorBox],
-    menuList: data,
+    routes: finalRoutes,
+    menuList: menuTree,
     permissions,
   };
 };

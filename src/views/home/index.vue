@@ -26,7 +26,6 @@ export default {
 </script>
 
 <template>
-  <i-page-panel full>
     <i-board full title="首页">
       <i-text class="btn" icon="el-icon-edit" icon-position="left"
         >我是按钮啊</i-text
@@ -49,7 +48,6 @@ export default {
         ></el-button>
       </el-input>
     </i-board>
-  </i-page-panel>
 </template>
 
 <style lang="scss" scoped>

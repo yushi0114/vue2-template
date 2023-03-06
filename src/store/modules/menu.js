@@ -1,18 +1,10 @@
+import { DEFAULT_REDIRECT_PATH } from "@/config/constants";
+
 const permission = {
   namespaced: true,
   state: {
     menuRouters: [],
-    menu: [
-      {
-        id: "0",
-        name: "Home",
-        parentId: "0",
-        path: "/",
-        title: "首页",
-        component: "baseLayout",
-        children: [],
-      },
-    ],
+    menu: [],
     permissions: [],
   },
   mutations: {
@@ -24,8 +16,7 @@ const permission = {
       state.permissions = permissions;
     },
   },
-  actions: {
-  },
+  actions: {},
 };
 
 export default permission;

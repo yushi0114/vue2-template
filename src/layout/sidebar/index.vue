@@ -1,41 +1,43 @@
 <script>
-export default {
-  name: "Sidebar",
-};
-</script>
-
-<script setup>
-import { useRouter, useRoute } from "@/composables";
-import { createNamespace, makeArrayProp, makeStringProp } from "@/utils";
-import { computed } from "vue";
+import { createNamespace, makeArrayProp } from "@/utils";
+import { defineComponent } from "vue";
 const [name, bem] = createNamespace("sidebar");
-const router = useRouter();
-const route = useRoute();
-const props = defineProps({
-  options: makeArrayProp(),
-  path: makeStringProp(""),
-});
 
-const activePath = computed(() => {
-  return (item) => {
-    return route.path.includes(item.path);
-  };
-});
+export default defineComponent({
+  name,
+  props: {
+    options: makeArrayProp(),
+  },
 
-const handleWrap = (item) => {
-  router.push(`${props.path}/${item.path}`);
-};
+  computed: {
+    activePath() {
+      return (item) => {
+        return this.$route.path === item.path;
+      };
+    },
+  },
+
+  data() {
+    return { bem };
+  },
+
+  methods: {
+    handleWrap(item) {
+      this.$router.push(item.path);
+    },
+  },
+});
 </script>
 
 <template>
   <div :class="bem()">
     <div
-      :class="bem({ active: activePath(item) })"
+      :class="bem('item', { active: activePath(item) })"
       v-for="item in options"
       :key="item.path"
       @click="handleWrap(item)"
     >
-      <i-texthoverable>{{ item.name }}</i-texthoverable>
+      <i-texthoverable>{{ item.title }}</i-texthoverable>
     </div>
   </div>
 </template>

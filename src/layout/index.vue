@@ -1,5 +1,5 @@
-<script setup>
-import { watch, ref } from "vue";
+<script>
+import { defineComponent } from "vue";
 import { createNamespace } from "@/utils";
 import { useStore, useRouter } from "@/composables";
 import { useMenu } from "./hooks";
@@ -7,31 +7,66 @@ import IHeader from "./header";
 import IHeaderMenu from "./menu";
 import ISidebar from "./sidebar";
 import ILogo from "./logo";
+import { DEFAULT_REDIRECT_PATH } from "@/config/constants";
 
 const [name, bem] = createNamespace("app-container");
-const store = useStore();
-const router = useRouter();
+export default defineComponent({
+  name,
+  components: {
+    IHeader,
+    IHeaderMenu,
+    ISidebar,
+    ILogo,
+  },
+  props: {},
+  setup() {
+    const store = useStore();
+    const router = useRouter();
 
-const { menu, defaultActive, defaultMenu, defaultSubMenu, sidebarOptions } =
-  useMenu();
+    const { menu, defaultActive, getDefaultActive, sidebarOptions } = useMenu();
 
-const handleCommand = (command) => {
-  store.dispatch("user/logout");
-};
+    const handleCommand = (command) => {
+      store.dispatch("user/logout");
+    };
 
-const handleSelect = (path, subMenu) => {
-  console.log("subMenu: ", subMenu);
-  sidebarOptions.value = subMenu ?? [];
-  defaultActive.value = path;
-  router.push(path);
-};
+    const handleSelect = (path, subMenu) => {
+      console.log("path: ", path);
+      console.log("subMenu: ", subMenu);
+      sidebarOptions.value = subMenu ?? [];
+      router.push(path);
+    };
+
+    const toHome = () => {
+      router.push(DEFAULT_REDIRECT_PATH);
+    };
+    return {
+      bem,
+      menu,
+      defaultActive,
+      sidebarOptions,
+      toHome,
+      handleSelect,
+      handleCommand,
+      getDefaultActive,
+    };
+  },
+  watch: {
+    "$route.path": {
+      handler() {
+        console.log("route：", this.$route);
+        this.getDefaultActive(this.$route);
+      },
+      immediate: true,
+    },
+  },
+});
 </script>
 
 <template>
   <i-layout :class="bem()">
     <i-header>
       <template #logo>
-        <i-logo @click="$router.push('/')" />
+        <i-logo @click="toHome" />
       </template>
       <template #menu>
         <i-header-menu

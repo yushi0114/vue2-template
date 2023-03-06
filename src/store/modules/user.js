@@ -5,7 +5,7 @@ import {
   setDebug,
 } from "@/utils";
 import { AuthApi } from "@/api";
-import { systemStorageKeys } from "@/config/constants";
+import { systemStorageKeys, SIGNIN_PATH } from "@/config/constants";
 setDebug(true);
 const user = {
   namespaced: true,
@@ -54,7 +54,7 @@ const user = {
     },
     logout({ commit }) {
       commit("clearUserInfo", {});
-      location.href = "login";
+      location.href = SIGNIN_PATH;
     },
     getUserInfo({ commit }, userId) {
       return new Promise((resolve, reject) => {
