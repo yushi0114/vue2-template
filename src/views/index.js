@@ -6,6 +6,7 @@ export function genDynamicViewConfig(filePath) {
   requiredModules.keys().forEach((path) => {
     if (path === `.${filePath}.js`) {
       const module = requiredModules(path);
+      console.log('module: ', module);
       if (DataType.isArray(module.routes)) {
         routes = module.routes;
       }
@@ -13,5 +14,6 @@ export function genDynamicViewConfig(filePath) {
     }
     return false;
   });
+  console.log('routes：-----------', routes);
   return { routes };
 }

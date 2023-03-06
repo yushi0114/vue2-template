@@ -12,7 +12,7 @@ export default defineComponent({
   computed: {
     activePath() {
       return (item) => {
-        return this.$route.path === item.path;
+        return this.$route.path.startsWith(item.path);
       };
     },
   },

@@ -35,7 +35,6 @@ const asyncRoutes = (data, router, nextRoutes, options) => {
   let routes = [];
 
   let menu = flattenDeep(data, "children");
-  console.log("menu: ", menu);
   // 处理路由映射真实路径，放在封装里babel之后就失效了，暂时不提供这个公共方法，在每个项目里写一遍吧
   // let routeMapFile = _options.mapPathFn ? _options.mapPathFn : routeMap;
   // 遍历处理路由
@@ -57,8 +56,10 @@ const asyncRoutes = (data, router, nextRoutes, options) => {
         id: item.id,
         title: item.title,
       };
-      const {routes: configRoutes} = _options?.genDynamicViewConfig(item[_options.component]);
-      console.log('routes: ', routes);
+      const { routes: configRoutes } = _options?.genDynamicViewConfig(
+        item[_options.component]
+      );
+      console.log("routes: ", configRoutes);
       (configRoutes || []).map((route) => {
         const newRoute = {
           // 生成与父级相同字符串开始的路径 -> 侧边导航高亮
@@ -84,21 +85,27 @@ const asyncRoutes = (data, router, nextRoutes, options) => {
       throw Error("路由映射规则为：@/views${url}/index.vue", err);
     }
   });
-  const menuTree = arrayToTree(routes, {
-    id: "id",
-    pid: "parentId",
-    children: "children",
-  });
-  console.log("menuTree: ", menuTree);
   // 推入需要异步加载的，非服务端获取的功能性页面
-  routerBox.push(...menuTree, ...nextRoutes);
+  routerBox.push(...routes, ...nextRoutes);
   let errorBox = {
     path: "*",
     redirect: _options.path404,
   };
   const finalRoutes = [...routerBox, errorBox];
-  finalRoutes.forEach((route) => {
-    router.addRoute(route); // 推入异步路由
+  routerBox.forEach((route) => {
+    if (route?.meta?.notRootChild) {
+      router.addRoute(route);
+    } else {
+      router.addRoute(_options.rootName, route);
+    }
+  });
+  router.addRoute(errorBox);
+  console.log("router：", router.getRoutes());
+
+  const menuTree = arrayToTree(routes, {
+    id: "id",
+    pid: "parentId",
+    children: "children",
   });
 
   return {

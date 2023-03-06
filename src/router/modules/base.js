@@ -4,24 +4,20 @@ import {
   SIGNIN_PATH,
   DEFAULT_REDIRECT_PATH,
   ROOT_PATH,
+  ROOT_NAME,
 } from "@/config/constants";
 
 export default [
   {
     path: "/",
-    component: Layout,
     redirect: DEFAULT_REDIRECT_PATH,
   },
   {
-    path: DEFAULT_REDIRECT_PATH,
+    path: ROOT_PATH,
+    name: ROOT_NAME,
     component: Layout,
-    children: [
-      {
-        path: "",
-        name: "Home",
-        component: () => import("@/views/home/index"),
-      },
-    ],
+    children: [],
+    redirect: DEFAULT_REDIRECT_PATH,
   },
   {
     path: SIGNIN_PATH,

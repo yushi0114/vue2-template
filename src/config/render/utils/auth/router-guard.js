@@ -36,33 +36,65 @@ const registerRouteGuard = (
   if (!_option?.apiFn) throw Error("apiFn lost！缺少获取菜单数据的api函数！");
 
   const progress = useNProgress();
+  const necessaryCheckedRoutePathSet = new Set();
+  function hasNecessaryRoute(router, to) {
+    return router
+      .getRoutes()
+      .filter((r) => !!r.path)
+      .some((r) => {
+        if (r.path === "/" && to.path !== "/") return false;
+        return (
+          r.path !== menuOptions.rootPath &&
+          to.path.indexOf(r.path.replace(menuOptions.rootPath, "")) > -1
+        );
+      });
+  }
   router.beforeEach((to, from, next) => {
     progress.start();
     // 检查是否存在登录状态
     let token = storage.get(_option.tokenKey) ?? "";
     // 存在登陆状态
     if (token) {
-      // 判断当前用户是否已拉取权限菜单
-      if (store.getters.menu.length === 0) {
-        _option
-          .apiFn()
-          .then((data) => {
-            let _menu = data || []; /*  */
-            let { permissions, menuList } = asyncRoutes(
-              _menu,
-              router,
-              nextRoutes,
-              menuOptions
-            );
-            store.commit(_option.dispatchSetMenu, menuList); // 将菜单数据存入store
-            store.commit(_option.dispatchSetPermissions, permissions); // 将权限码数据存入store
-            next({ ...to, replace: true });
-          })
-          .catch();
-        return;
+      // 访问的路由如果还没有添加，可能是一个动态路由
+      // 需要重新拉取api 动态添加路由，然后通过重定向 next({ ...to, replace }) 再次触发路由
+      if (!hasNecessaryRoute(router, to)) {
+        console.log("2323232：", 2323232);
+        if (necessaryCheckedRoutePathSet.has(to.fullPath)) {
+          next(_option.path404);
+        } else {
+          necessaryCheckedRoutePathSet.add(to.fullPath);
+          console.log("to.fullPath: ", to.fullPath);
+          _option
+            .apiFn()
+            .then((data) => {
+              console.log("data: ", data);
+              let _menu = data || []; /*  */
+              let { permissions, menuList } = asyncRoutes(
+                _menu,
+                router,
+                nextRoutes,
+                menuOptions
+              );
+              store.commit(_option.dispatchSetMenu, menuList); // 将菜单数据存入store
+              store.commit(_option.dispatchSetPermissions, permissions); // 将权限码数据存入store
+              next({ ...to, replace: true });
+            })
+            .catch(() => {
+              next(_option.path404);
+            });
+        }
+      } else {
+        console.log("1212121：", 1212121);
+        if (to.path === _option.pathLogin) {
+          next(_option.pathLogged);
+        } else {
+          if (to.matched.length === 0) {
+            next(_option.path404);
+          } else {
+            next();
+          }
+        }
       }
-      // 已登录状态 去往登录页时自动重定向至配置页 其他跳转正常进行
-      to.path === _option.pathLogin ? next(_option.pathLogged) : next();
       return;
     }
     // 无登录状态时 可进入白名单页面  去其他页面则重定向至登陆

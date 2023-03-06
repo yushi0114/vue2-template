@@ -7,11 +7,12 @@ export default {
 <script setup>
 import { ref } from "vue";
 import { createNamespace } from "@/utils";
-import { useChildren } from "@/composables";
+import { useChildren, useRoute } from "@/composables";
 import Child from "./components/Child";
 import { RELATION_KEY } from "./constants";
 const [name, bem] = createNamespace("role");
 
+const route = useRoute();
 const count = ref(0);
 const add = () => {
   count.value++;
@@ -25,6 +26,9 @@ linkChildren({ add, count });
 <template>
   <i-page-panel full>
     <i-board full title="角色管理">
+      <router-link :to="`${route.path}/new/`">
+        <el-button type="primary">新建角色</el-button>
+      </router-link>
       <i-text block size="md" :class="bem()">我是角色管理啊</i-text>
       <child />
     </i-board>

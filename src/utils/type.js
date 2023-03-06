@@ -127,7 +127,7 @@ export class DataType {
      * @param {*} value
      */
     static isNullAndUnDef(value) {
-        return DataType.isUnDef(value) && DataType.isNull(value);
+        return DataType.isUndefined(value) && DataType.isNull(value);
     }
 
     /**
@@ -135,7 +135,7 @@ export class DataType {
      * @param {*} value
      */
     static isNullOrUnDef(value) {
-        return DataType.isUnDef(value) || DataType.isNull(value);
+        return DataType.isUndefined(value) || DataType.isNull(value);
     }
 
     /**

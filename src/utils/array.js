@@ -1,4 +1,5 @@
 import { Time } from "./time";
+import { deepClone } from "./function";
 
 /**
  * 从树形数据中递归筛选目标值
@@ -65,6 +66,7 @@ function arrayToTree(
   array = [],
   options = { id: "id", pid: "pid", children: "children", rootPidVal: null }
 ) {
+  const arrayTemp = deepClone(array);
   let array_ = []; // 创建储存剔除叶子节点后的骨架节点数组
   let unique = {}; // 创建盒子辅助本轮children合并去重
   let root_pid = options.rootPidVal || [
@@ -77,9 +79,9 @@ function arrayToTree(
     "00000000-0000-0000-0000-000000000000",
     "",
   ]; // 可能存在的根节点pid形式
-  array.forEach((item) => {
+  arrayTemp.forEach((item) => {
     // 筛选可以插入当前节点的所有子节点
-    let children_array = array.filter(
+    let children_array = arrayTemp.filter(
       (it) => it[options.pid] === item[options.id]
     );
     if (
@@ -279,7 +281,7 @@ const autoPositionAfterDelete = (
   data,
   key,
   delId,
-  actId,
+  actId
   // isTree,
   // keyParent
 ) => {
